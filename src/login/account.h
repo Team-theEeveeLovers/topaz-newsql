@@ -36,7 +36,7 @@
 //*
 /*
 *
-*  PRIVILIGIES CODES
+*  PRIVILEGES CODES
 */
 //*
 

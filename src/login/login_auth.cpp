@@ -109,7 +109,7 @@ int32 login_parse(int32 fd)
         {
             const char* fmtQuery = "SELECT accounts.id,accounts.status \
                                     FROM accounts \
-                                    WHERE accounts.login = '%s' AND accounts.password = PASSWORD('%s')";
+                                    WHERE accounts.login = '%s' AND accounts.password = SHA1('%s')";
             int32 ret = Sql_Query(SqlHandle, fmtQuery, escaped_name, escaped_pass);
             if (ret != SQL_ERROR  && Sql_NumRows(SqlHandle) != 0)
             {
@@ -260,7 +260,7 @@ int32 login_parse(int32 fd)
                 char strtimecreate[128];
                 strftime(strtimecreate, sizeof(strtimecreate), "%Y:%m:%d %H:%M:%S", timecreateinfo);
                 fmtQuery = "INSERT INTO accounts(id,login,password,timecreate,timelastmodify,status,priv)\
-                                       VALUES(%d,'%s',PASSWORD('%s'),'%s',NULL,%d,%d);";
+                                       VALUES(%d,'%s',SHA1('%s'),'%s',NULL,%d,%d);";
 
                 if (Sql_Query(SqlHandle, fmtQuery, accid, escaped_name, escaped_pass,
                     strtimecreate, ACCST_NORMAL, ACCPRIV_USER) == SQL_ERROR)
@@ -287,7 +287,7 @@ int32 login_parse(int32 fd)
         {
             const char* fmtQuery = "SELECT accounts.id,accounts.status \
                                     FROM accounts \
-                                    WHERE accounts.login = '%s' AND accounts.password = PASSWORD('%s')";
+                                    WHERE accounts.login = '%s' AND accounts.password = SHA1('%s')";
             int32 ret = Sql_Query(SqlHandle, fmtQuery, escaped_name, escaped_pass);
             if (ret == SQL_ERROR || Sql_NumRows(SqlHandle) == 0)
             {
@@ -341,7 +341,7 @@ int32 login_parse(int32 fd)
                 fmtQuery = "UPDATE accounts SET accounts.timelastmodify = NULL WHERE accounts.id = %d";
                 Sql_Query(SqlHandle, fmtQuery, sd->accid);
 
-                fmtQuery = "UPDATE accounts SET accounts.password = PASSWORD('%s') WHERE accounts.id = %d";
+                fmtQuery = "UPDATE accounts SET accounts.password = SHA1('%s') WHERE accounts.id = %d";
                 ret = Sql_Query(SqlHandle, fmtQuery, escaped_updated_password, sd->accid);
                 if (ret == SQL_ERROR)
                 {

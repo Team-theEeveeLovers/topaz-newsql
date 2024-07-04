@@ -60,7 +60,7 @@ void CGuild::updateGuildPointsPattern(uint8 pattern)
         m_GPItemsRank[i] = (m_GPItemsRank[i] + 1) % (i + 4);
 
         std::string query = "SELECT itemid, points, max_points FROM guild_item_points WHERE "
-            "guildid = %u AND pattern = %u AND rank = %u";
+            "guildid = %u AND pattern = %u AND _rank = %u";
         int ret = Sql_Query(SqlHandle, query.c_str(), m_id, pattern, m_GPItemsRank[i]);
 
         if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) > 0)

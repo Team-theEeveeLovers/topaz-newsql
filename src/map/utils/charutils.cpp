@@ -733,7 +733,7 @@ namespace charutils
             }
         }
 
-        fmtQuery = "SELECT skillid, value, rank "
+        fmtQuery = "SELECT skillid, value, _rank "
             "FROM char_skills "
             "WHERE charid = %u;";
 
@@ -4476,8 +4476,8 @@ namespace charutils
             "charid = %u,"
             "skillid = %u,"
             "value = %u,"
-            "rank = %u "
-            "ON DUPLICATE KEY UPDATE value = %u, rank = %u;";
+            "_rank = %u "
+            "ON DUPLICATE KEY UPDATE value = %u, _rank = %u;";
 
         Sql_Query(SqlHandle, Query,
             PChar->id,

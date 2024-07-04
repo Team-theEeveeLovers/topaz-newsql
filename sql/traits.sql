@@ -27,19 +27,19 @@ CREATE TABLE `traits` (
   `name` text NOT NULL,
   `job` tinyint(2) unsigned NOT NULL DEFAULT 0,
   `level` tinyint(2) unsigned NOT NULL DEFAULT 99,
-  `rank` tinyint(2) unsigned NOT NULL DEFAULT 1,
+  `_rank` tinyint(2) unsigned NOT NULL DEFAULT 1,
   `modifier` smallint(5) unsigned NOT NULL DEFAULT 0,
   `value` smallint(5) NOT NULL DEFAULT 0,
   `content_tag` varchar(7) DEFAULT NULL,
   `meritid` smallint(5) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`traitid`,`job`,`level`,`rank`,`modifier`)
+  PRIMARY KEY (`traitid`,`job`,`level`,`_rank`,`modifier`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `traits`
 --
--- ORDER BY:  `traitid`,`job`,`level`,`rank`,`modifier`
+-- ORDER BY:  `traitid`,`job`,`level`,`_rank`,`modifier`
 
 LOCK TABLES `traits` WRITE;
 /*!40000 ALTER TABLE `traits` DISABLE KEYS */;

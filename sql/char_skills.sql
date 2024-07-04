@@ -30,6 +30,6 @@ CREATE TABLE IF NOT EXISTS `char_skills` (
   `charid` int(10) unsigned NOT NULL,
   `skillid` tinyint(2) unsigned NOT NULL,
   `value` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `rank` tinyint(2) unsigned NOT NULL DEFAULT '0',
+  `_rank` tinyint(2) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`charid`,`skillid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=10;

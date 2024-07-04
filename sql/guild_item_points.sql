@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS `guild_item_points`;
 CREATE TABLE `guild_item_points` (
   `guildid` tinyint(1) unsigned NOT NULL,
   `itemid` smallint(5) unsigned NOT NULL,
-  `rank` smallint(1) unsigned NOT NULL,
+  `_rank` smallint(1) unsigned NOT NULL,
   `points` smallint(5) unsigned NOT NULL DEFAULT '0',
   `max_points` smallint(5) unsigned NOT NULL DEFAULT '0',
   `pattern` tinyint(1) unsigned NOT NULL DEFAULT '0',

@@ -8490,8 +8490,8 @@ inline int32 CLuaBaseEntity::capAllSkills(lua_State* L)
             "charid = %u,"
             "skillid = %u,"
             "value = %u,"
-            "rank = %u "
-            "ON DUPLICATE KEY UPDATE value = %u, rank = %u;";
+            "_rank = %u "
+            "ON DUPLICATE KEY UPDATE value = %u, _rank = %u;";
 
         Sql_Query(SqlHandle, Query,
             PChar->id,
